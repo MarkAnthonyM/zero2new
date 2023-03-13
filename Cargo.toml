@@ -15,4 +15,5 @@ name = "zero2new"
 [dependencies]
 actix-web = "4"
 reqwest = "0.11.14"
+serde = { version = "1.0.155", features = ["derive"] }
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
