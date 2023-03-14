@@ -1,4 +1,5 @@
 use std::net::TcpListener;
+use zero2new::startup::run;
 
 #[tokio::test]
 async fn health_check_works() {
@@ -74,7 +75,7 @@ fn spawn_app() -> String {
     let listener = TcpListener::bind("127.0.0.1:0").expect("Failed to bind random port");
     // Retrieve port assigned by OS
     let port = listener.local_addr().unwrap().port();
-    let server = zero2new::run(listener).expect("Failed to bind address");
+    let server = run(listener).expect("Failed to bind address");
     // tokio::spawn returns a handle to the spawned future
     // but no use for it
     let _ = tokio::spawn(server);
